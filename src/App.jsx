@@ -2,6 +2,7 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import styled from "styled-components";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Header2 } from "./assets/components/Header2";
 import { Body2 } from "./assets/components/Body2";
 import { Footer2 } from "./assets/components/Footer2";
@@ -68,7 +69,7 @@ const Pagina = styled.div`
   .fo {
     width: 100%;
     height: 30%;
-    max-height: 200px;
+    max-height: 100px;
   }
 `;
 

@@ -1,104 +1,90 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import maq from "../images/docs.jpeg";
+import { PCI } from "./brands/PCI";
+import { Triogen } from "./brands/Triogen";
+import { Pinnacle } from "./brands/Pinnacle";
+import { Container, Row, Col } from "react-bootstrap";
 
 export function Body2() {
+  const [selected, setSelected] = useState("PCI");
+
+  const renderSpecifications = () => {
+    switch (selected) {
+      case "PCI":
+        return <PCI />;
+      case "TRIOGEN":
+        return <Triogen />;
+      case "PINNACLE":
+        return <Pinnacle />;
+      default:
+        return <PCI />;
+    }
+  };
+
   return (
-    <Container>
-      <div className="titulo">
-        <h1>CONOCE NUESTRAS NUEVAS SOLUCIONES DE OXIGENACIÓN.</h1>
-      </div>
-      <div className="subtitulo">
-        <h2>
-          Nueva gama de equipos con tecnología VSA. Ahora más eficientes y con
-          mayores capacidades.
-        </h2>
-      </div>
-
-      <div className="imagen">
-        <img src={maq} />
-        <div className="leyenda">
-          <h3>DOCS 2500 LPM</h3>
-        </div>
-      </div>
-
-      <div className="propiedades">
-        <div className="carac">Características:</div>
-        <ul>
-          <li>Tecnología VSA</li>
-          <li>90% - 96% de pureza</li>
-          <li>Rango de temperatura desde -18° a 49° C</li>
-          <li>Presión de salida: 20 a 100 psig</li>
-        </ul>
-      </div>
-      <h3 className="consulta">
-        Además, Consulta por nuestras versiones para 80, 200, 500 y 5000 LPM!
-      </h3>
-    </Container>
+    <ContentWrapper>
+      <Container>
+        <Row>
+          <Col>
+            <section className="selector">
+              <Button
+                onClick={() => setSelected("PCI")}
+                className={selected === "PCI" ? "active" : ""}
+              >
+                PCI
+              </Button>
+              <Button
+                onClick={() => setSelected("TRIOGEN")}
+                className={selected === "TRIOGEN" ? "active" : ""}
+              >
+                TRIOGEN
+              </Button>
+              <Button
+                onClick={() => setSelected("PINNACLE")}
+                className={selected === "PINNACLE" ? "active" : ""}
+              >
+                PINNACLE
+              </Button>
+            </section>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Especificaciones>{renderSpecifications()}</Especificaciones>
+          </Col>
+        </Row>
+      </Container>
+    </ContentWrapper>
   );
 }
 
-const Container = styled.div`
-  width: 70%;
-  margin-top: 25px;
-  display: block;
-  .titulo {
-    width: 100%;
-    text-align: start;
-    color: #263973;
+const ContentWrapper = styled.div`
+  width: 100%;
+  margin-top: 50px;
+`;
+
+const Button = styled.button`
+  padding: 10px 20px;
+  margin: 5px;
+  margin-bottom: 25px;
+  border: none;
+  cursor: pointer;
+  background-color: #f0f0f0;
+  color: #263973;
+  font-weight: bold;
+  border-radius: 5px;
+  &:hover {
+    background-color: #263973;
+    color: white;
   }
-  .subtitulo {
-    width: 100%;
-    text-align: justify;
-    word-spacing: 1px;
-    h2 {
-      font-weight: 100;
-    }
+  &.active {
+    background-color: #263973;
+    color: white;
   }
-  .imagen {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    place-content: center;
-    align-items: center;
-    img {
-      width: 70%;
-      margin: 0;
-      padding: 0;
-    }
-    .leyenda {
-      text-align: end;
-      width: 70%;
-      margin: 0;
-      padding: 0;
-    }
-  }
-  .propiedades {
-    margin: 0;
-    padding: 0;
-    margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    text-align: start;
-    place-content: start;
-    width: 100%;
-    .carac {
-      font-size: 25px;
-      font-weight: bold;
-      margin: 0;
-      padding: 0;
-      margin-bottom: 5px;
-    }
-    ul {
-      margin: 0;
-      padding: 0;
-      padding-left: 15px;
-    }
-  }
-  .consulta {
-    text-align: start;
-    font-size: 25px;
-  }
-  margin-bottom: 50px;
+`;
+
+const Especificaciones = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
 `;
