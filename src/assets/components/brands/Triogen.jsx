@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Table, Container } from "react-bootstrap";
-import logo from "../../images/logoTriogen.png";
+import logo from "../../images/logoTriogen_cro.png";
 import maq from "../../images/PPO3.png";
 import madeIn from "../../images/made in.jpeg";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -66,7 +66,7 @@ export function Triogen() {
         </div>
       </div>
       <div className="tabla">
-        <Container>
+        <Container className="tc">
           <Table bordered hover responsive className="tabla">
             <thead>
               <tr>
@@ -160,14 +160,13 @@ export function Triogen() {
 
 const TriogenWrapper = styled.div`
   width: 100%;
-
   .logo {
     display: flex;
     img {
       width: 20%;
     }
     @media (max-width: 768px) {
-      img{
+      img {
         width: 150px;
       }
     }
@@ -188,14 +187,15 @@ const TriogenWrapper = styled.div`
       flex-direction: column;
 
       .subtitulo {
-        width: 80%;
+        width: 100%;
         h6 {
-          text-align: start;
+          text-align: justify;
+          justify-content: center;
           font-weight: normal;
         }
         @media (max-width: 768px) {
           h6 {
-            text-align: start;
+            text-align: justify;
             font-size: 16px;
           }
         }
@@ -231,27 +231,44 @@ const TriogenWrapper = styled.div`
         text-align: start;
         padding-left: 25px;
       }
+      ul {
+        padding: 0; /* Eliminar padding del ul */
+        margin: 0; /* Eliminar margin del ul */
+        list-style: none; /* Eliminar puntos por defecto */
+      }
       li {
         text-align: justify;
-        padding-bottom: 15px;
+        padding-bottom: 5px; /* Ajustar el espaciado entre elementos */
+        position: relative; /* Necesario para el pseudo-elemento */
+        padding-left: 20px; /* Espaciado para el punto */
+      }
+      li::before {
+        content: "•"; /* Añade un punto manualmente */
+        position: absolute;
+        left: 0; /* Posición del punto */
+        color: #263973; /* Color del punto */
       }
       @media (max-width: 768px) {
         h4 {
           font-size: 16px;
         }
         ul li {
-          padding: 0px;
-          margin: 0px;
+          padding: 0; /* Eliminar padding para móviles */
+          margin: 0; /* Eliminar margin para móviles */
           font-size: 13px;
-          margin-bottom: 15px;
+          padding-left: 9px;
+          margin-bottom: 10px; /* Espaciado entre los elementos */
         }
       }
     }
   }
 
   .tabla {
+    .tc {
+      padding: 0;
+      margin: 0;
+    }
     margin-top: 30px;
-
     th {
       place-content: center;
       background-color: #1a6fba;

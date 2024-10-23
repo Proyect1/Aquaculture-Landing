@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import logo from "../images/logo.svg";
+import logo from "../images/logo-cropped.svg";
 import { PiPhoneCall } from "react-icons/pi";
 import { LuMail } from "react-icons/lu";
 import { FaLinkedin } from "react-icons/fa";
@@ -44,11 +44,21 @@ export function Footer2() {
         </div>
       </FooterContent>
       <WaveContainer>
-        <WaveSVG viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <WaveSVG
+          viewBox="0 0 1440 320"
+          preserveAspectRatio="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <defs>
             <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style={{ stopColor: "#27357d", stopOpacity: 1 }} />
-              <stop offset="100%" style={{ stopColor: "#3777a9", stopOpacity: 1 }} />
+              <stop
+                offset="0%"
+                style={{ stopColor: "#27357d", stopOpacity: 1 }}
+              />
+              <stop
+                offset="100%"
+                style={{ stopColor: "#3777a9", stopOpacity: 1 }}
+              />
             </linearGradient>
           </defs>
           <path
@@ -83,16 +93,22 @@ const FooterContent = styled.div`
   z-index: 2;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end; /* Alinea ambos elementos (contacto y logo) al fondo */
   padding: 10px 10%;
   color: white;
+  max-width: 1300px; /* Limita el ancho máximo a 1500px */
+  margin: 0 auto;
+  height: 100%; /* Para garantizar que ambos elementos se alineen al fondo */
 
   .contacto {
     display: flex;
-    place-items: center;
+    place-items: flex-end; /* Mantiene el contenido alineado al fondo */
+    height: 100%; /* Para que la caja de contacto siempre llene el espacio */
 
     .caja {
       display: flex;
       flex-direction: column;
+      justify-content: flex-end; /* Mantiene el contenido al fondo de la caja */
 
       h6 {
         font-size: 16px;
@@ -102,11 +118,11 @@ const FooterContent = styled.div`
       .correo,
       .fono {
         display: flex;
-        align-items: center;
-        margin-bottom: 5px; /* Reducimos el margen inferior */
+        align-items: flex-end;
 
         .icon {
-          margin-right: 5px; /* Reducimos el espacio entre el ícono y el texto */
+          margin-right: 5px;
+          align-items: flex-end;
         }
 
         .mail a,
@@ -114,73 +130,48 @@ const FooterContent = styled.div`
           text-decoration: none;
           color: white;
           font-size: 14px;
+          display: inline-block;
+        }
+        .phone {
+          flex-direction: column; /* Alinea los elementos dentro de .phone en columna */
+          justify-content: flex-end;
         }
       }
 
       .social {
-        margin-left: 10px; /* Reducimos el margen entre el correo y LinkedIn */
+        margin-left: 10px;
 
         a {
           color: white;
-          font-size: 18px; /* Ajustamos el tamaño del ícono de LinkedIn */
+          font-size: 18px;
         }
       }
     }
   }
 
-  .logo .im {
-    width: 150px;
+  .logo {
+    position: relative;
+    display: flex;
+    align-items: flex-end; /* Alinea el logo en la parte inferior */
+    height: 100%; /* Mantiene la altura igual a la caja de contacto */
+
+    .im {
+      width: 150px; /* Ajusta según el tamaño necesario del logo */
+      object-fit: contain;
+    }
   }
 
   /* Media Queries para pantallas pequeñas */
   @media (max-width: 768px) {
-    padding: 10px 5%;
-
-    .contacto .caja {
-      h6 {
-        font-size: 14px;
+    .logo {
+      .im {
+        width: 100px; /* Ajusta el tamaño en pantallas pequeñas */
       }
-      .correo .mail a,
-      .fono .phone a {
-        font-size: 12px;
-      }
-      .social a {
-        font-size: 16px;
-      }
-    }
-
-    .logo .im {
-      width: 100px;
     }
   }
 
-  /* Ajustes específicos para pantallas muy pequeñas (<400px) */
-  @media (max-width: 550px) {
-    padding: 10px 3%;
-
-    .contacto .caja {
-      h6 {
-        margin-bottom: 0;
-        font-size: 12px;
-      }
-      .fono .phone{
-        margin-bottom: 0px;
-      }
-      .correo .mail a,
-      .fono .phone a {
-        margin-bottom: 0px;
-        font-size: 10px;
-      }
-      .social a {
-        font-size: 14px;
-      }
-    }
-
-    .logo .im {
-      width: 150px;
-    }
-  }
-  @media (max-width: 300px) {
+  /* Media Queries para pantallas muy pequeñas */
+  @media (max-width: 400px) {
     .logo .im {
       display: none;
     }
@@ -204,7 +195,6 @@ const WaveContainer = styled.div`
   @media (max-height: 746px) {
     height: 40vh;
   }
-
 `;
 
 const WaveSVG = styled.svg`

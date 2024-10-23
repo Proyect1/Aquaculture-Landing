@@ -23,17 +23,19 @@ export function Body2() {
 
   return (
     <ContentWrapper>
-      <Container>
-        <Row>
-          <Col>
-            <section className="selector">
+      <div className="cc">
+        <Row className="row">
+          <Col className="row">
+            <Selector className="selector">
               <Button
+                style={{ marginRight: "5px" }}
                 onClick={() => setSelected("PCI")}
                 className={selected === "PCI" ? "active" : ""}
               >
                 PCI
               </Button>
               <Button
+                style={{ marginRight: "5px" }}
                 onClick={() => setSelected("TRIOGEN")}
                 className={selected === "TRIOGEN" ? "active" : ""}
               >
@@ -45,7 +47,7 @@ export function Body2() {
               >
                 PINNACLE
               </Button>
-            </section>
+            </Selector>
           </Col>
         </Row>
         <Row>
@@ -53,19 +55,38 @@ export function Body2() {
             <Especificaciones>{renderSpecifications()}</Especificaciones>
           </Col>
         </Row>
-      </Container>
+      </div>
     </ContentWrapper>
   );
 }
 
 const ContentWrapper = styled.div`
   width: 100%;
+  max-width: 1300px; /* Limita el ancho máximo a 1800px */
+  margin: 0 auto;
+  padding-right: 10%;
+  padding-left: 10%;
   margin-top: 50px;
+
+  .cc {
+    width: 100%;
+    /* Centra el contenido si la pantalla es mayor a 1800px */
+
+    .row {
+      margin: 0;
+      padding: 0;
+
+      .col {
+        margin: 0;
+        padding: 0px;
+      }
+    }
+  }
 `;
 
 const Button = styled.button`
-  padding: 10px 20px;
-  margin: 5px;
+  padding: 10px;
+  margin-top: 5px;
   margin-bottom: 25px;
   border: none;
   cursor: pointer;
@@ -87,4 +108,18 @@ const Especificaciones = styled.div`
   display: flex;
   justify-content: center;
   width: 100%;
+`;
+
+const Selector = styled.section`
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centra los botones por defecto */
+
+  @media (max-width: 800px) {
+    padding: 0;
+    margin: 0;
+    justify-content: flex-start; /* Alinea los botones a la izquierda en pantallas pequeñas */
+    /* Añade un padding a la izquierda para que no queden pegados al borde */
+  }
 `;

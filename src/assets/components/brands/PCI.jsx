@@ -38,13 +38,14 @@ export function PCI() {
 
 const PCIWrapper = styled.div`
   width: 100%;
-
   .titulo {
     color: #263973;
     margin-top: 15px;
     margin-bottom: 15px;
+    word-spacing: 5px;
     h1 {
-      text-align: justify;
+      word-spacing: 5px;
+      text-align: start;
       padding: 0;
       margin: 0;
     }
@@ -52,7 +53,7 @@ const PCIWrapper = styled.div`
 
   .subtitulo {
     text-align: justify;
-    
+
     h2 {
       font-weight: 100;
       text-align: justify;
@@ -91,14 +92,29 @@ const PCIWrapper = styled.div`
     }
 
     ul {
-      padding-left: 15px; /* Espaciado para la lista */
+      padding: 0; /* Eliminado el espaciado por defecto */
+      margin: 0; /* Eliminado el espaciado por defecto */
+      list-style: none; /* Elimina los puntos por defecto */
+
+      li {
+        padding-left: 10px; /* Ajusta el espaciado entre el punto y el texto */
+        margin-bottom: 5px; /* Espaciado entre los elementos de la lista */
+        position: relative; /* Necesario para el pseudo-elemento */
+      }
+
+      li::before {
+        content: "•"; /* Añade un punto manualmente */
+        position: absolute;
+        left: 0; /* Posición del punto */
+        color: #263973; /* Color del punto */
+      }
     }
   }
 
   .consulta {
     margin-top: 30px;
     font-size: 25px;
-    text-align: center; /* Centrando la consulta */
+    text-align: start; /* Centrando la consulta */
 
     h3 {
       font-weight: bold;
@@ -125,39 +141,38 @@ const PCIWrapper = styled.div`
   }
 
   @media (max-width: 581px) {
-  width: 80%;
-  .titulo h1 {
-    font-size: 19px; /* Tamaño de fuente ajustado */
-  }
+    .titulo h1 {
+      font-size: 19px; /* Tamaño de fuente ajustado */
+    }
 
-  .subtitulo h2 {
-    font-size: 16px; /* Tamaño de fuente ajustado */
-  }
+    .subtitulo h2 {
+      font-size: 16px; /* Tamaño de fuente ajustado */
+    }
 
-  .imagen {
-    img {
-      width: 70%; /* Cambiado a 100% para mayor responsividad */
-      max-width: 600px; /* Tamaño máximo de la imagen */
-      height: auto;
+    .imagen {
+      img {
+        width: 70%; /* Cambiado a 100% para mayor responsividad */
+        max-width: 600px; /* Tamaño máximo de la imagen */
+        height: auto;
+      }
+    }
+
+    .leyenda {
+      h3 {
+        font-size: 13px;
+      }
+    }
+
+    .propiedades .carac {
+      font-size: 13px; /* Tamaño de fuente ajustado */
+    }
+
+    .propiedades ul li {
+      font-size: 13px; /* Asegurando que los elementos de la lista tengan este tamaño */
+    }
+
+    .consulta {
+      font-size: 16px; /* Tamaño de fuente ajustado */
     }
   }
-  
-  .leyenda {
-    h3 {
-      font-size: 13px;
-    }
-  }
-
-  .propiedades .carac {
-    font-size: 13px; /* Tamaño de fuente ajustado */
-  }
-
-  .propiedades ul li {
-    font-size: 13px; /* Asegurando que los elementos de la lista tengan este tamaño */
-  }
-
-  .consulta {
-    font-size: 16px; /* Tamaño de fuente ajustado */
-  }
-}
 `;

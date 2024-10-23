@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Table, Container } from "react-bootstrap";
-import logo from "../../images/logoPinnacle.png";
+import logo from "../../images/logoPinnacle_r.png";
 import maq from "../../images/pinacle.png";
 import maq_2 from "../../images/pinacle_box.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -348,8 +348,9 @@ const PinnacleWrapper = styled.div`
     .grafico {
       .subtitulo {
         h6 {
-          text-align: start;
+          text-align: justify;
           font-weight: normal;
+          margin-right: 15px;
         }
       }
       img {
@@ -372,11 +373,23 @@ const PinnacleWrapper = styled.div`
       h4 {
         font-weight: bolder;
         text-align: start;
-        padding-left: 25px;
+      }
+      ul {
+        padding: 0; /* Eliminar padding del ul */
+        margin: 0; /* Eliminar margin del ul */
+        list-style: none; /* Eliminar puntos por defecto */
       }
       li {
         text-align: justify;
-        padding-bottom: 15px;
+        padding-bottom: 5px; /* Ajustar el espaciado entre elementos */
+        position: relative; /* Necesario para el pseudo-elemento */
+        padding-left: 9px; /* Espaciado para el punto */
+      }
+      li::before {
+        content: "•"; /* Añade un punto manualmente */
+        position: absolute;
+        left: 0; /* Posición del punto */
+        color: #263973; /* Color del punto */
       }
       @media (max-width: 768px) {
         h4 {
@@ -391,6 +404,7 @@ const PinnacleWrapper = styled.div`
   .tabla {
     overflow-x: auto;
     .cont {
+      padding: 0px;
       .tablas {
         th,
         td {
@@ -409,6 +423,11 @@ const PinnacleWrapper = styled.div`
       flex-direction: column; /* Cambia la disposición de los elementos a columnas en pantallas pequeñas */
       align-items: center;
 
+      .grafico{
+        width: 100%;
+      .subtitulo{
+      }
+      }
       .grafico,
       .img_maq2,
       .detalle {
