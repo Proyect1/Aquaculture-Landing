@@ -45,7 +45,6 @@ const PCIWrapper = styled.div`
     word-spacing: 5px;
     h1 {
       word-spacing: 5px;
-      text-align: start;
       padding: 0;
       margin: 0;
     }
