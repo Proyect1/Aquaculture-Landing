@@ -11,7 +11,14 @@ export function Header2() {
       <div className="header">
         <div className="content">
           <div className="im">
-            <img src={logo} alt="" />
+            <img
+              src={logo}
+              alt="Logo de Covepa Aquaculture"
+              onClick={() =>
+                (window.location.href = "https://covepaaquaculture.cl")
+              }
+              style={{ cursor: "pointer" }} // Cambia el cursor a una mano para indicar clic
+            />
           </div>
           <div className="titulo">
             <h2>
@@ -242,7 +249,8 @@ const CONT = styled.div`
     }
   }
 
-  @media (max-width: 650px) { /* Media query para pantallas menores a 50px */
+  @media (max-width: 650px) {
+    /* Media query para pantallas menores a 50px */
     .header {
       .content {
         .titulo {
@@ -255,7 +263,8 @@ const CONT = styled.div`
       }
     }
   }
-  @media (max-width: 480px) { /* Media query para pantallas menores a 50px */
+  @media (max-width: 480px) {
+    /* Media query para pantallas menores a 50px */
     .header {
       .content {
         .titulo {
@@ -287,8 +296,7 @@ const CONT = styled.div`
         }
 
         .titulo {
-            h2 {
-              
+          h2 {
             span:first-child {
               font-size: 19px;
             }
@@ -311,8 +319,8 @@ const CONT = styled.div`
         }
 
         .titulo {
-            h2 {
-              padding-top: 0;
+          h2 {
+            padding-top: 0;
             span:first-child {
               padding-top: 0;
               font-size: 15px;

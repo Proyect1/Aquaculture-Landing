@@ -1,12 +1,21 @@
-import React from "react";
+import React , { useState } from "react";
 import styled from "styled-components";
 import maq from "../../images/docs.jpeg";
 
 export function PCI() {
+  const [fontWeight, setFontWeight] = useState("lighter");
+
+  const cambiarFontWeight = () => {
+    const fontWeights = ["lighter", "300",  "600", "800", "bold", "bolder"];
+    const currentIndex = fontWeights.indexOf(fontWeight);
+    const nextIndex = (currentIndex + 1) % fontWeights.length;
+    setFontWeight(fontWeights[nextIndex]);
+  };
   return (
     <PCIWrapper>
       <div className="titulo">
-        <h1>CONOCE NUESTRAS NUEVAS SOLUCIONES DE OXIGENACIÓN.</h1>
+      <h1 style={{fontWeight:"600"}}>CONOCE NUESTRAS NUEVAS SOLUCIONES DE OXIGENACIÓN.</h1>
+      {/* <button onClick={cambiarFontWeight}>Cambiar font-weight (font-weight: {fontWeight})</button> */}
       </div>
       <div className="subtitulo">
         <h2>
@@ -40,14 +49,15 @@ const PCIWrapper = styled.div`
   width: 100%;
   .titulo {
     color: #263973;
-    margin-top: 15px;
     margin-bottom: 15px;
     word-spacing: 5px;
     h1 {
       word-spacing: 5px;
-      text-align: start;
+      text-align: center;
       padding: 0;
+      font-family: Helvetica, sans-serif;
       margin: 0;
+      font-weight: lighter;
     }
   }
 

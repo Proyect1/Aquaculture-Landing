@@ -87,7 +87,7 @@ const ContentWrapper = styled.div`
 const Button = styled.button`
   padding: 10px;
   margin-top: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 50px;
   border: none;
   cursor: pointer;
   background-color: #f0f0f0;
@@ -119,7 +119,7 @@ const Selector = styled.section`
   @media (max-width: 800px) {
     padding: 0;
     margin: 0;
-    justify-content: flex-start; /* Alinea los botones a la izquierda en pantallas pequeñas */
+    /*justify-content: flex-start;  Alinea los botones a la izquierda en pantallas pequeñas */
     /* Añade un padding a la izquierda para que no queden pegados al borde */
   }
 `;

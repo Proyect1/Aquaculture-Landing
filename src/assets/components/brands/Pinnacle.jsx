@@ -9,41 +9,48 @@ import "bootstrap/dist/css/bootstrap.min.css";
 export function Pinnacle() {
   return (
     <PinnacleWrapper>
-      <div className="logo">
-        <img src={logo} />
-      </div>
       <div className="contenido">
-        <div className="grafico">
-          <div className="subtitulo">
-            <h6>Gama de modulares con capacidades de hasta 30 kg/h</h6>
+        <div className="izq">
+          <div className="logo">
+            <img src={logo} />
           </div>
-          <div className="img_maq">
-            <img src={maq} />
+          <div className="grafico">
+            <div className="img_izq">
+              <div className="subtitulo">
+                <h6>Gama de modulares con capacidades de hasta 30 kg/h</h6>
+              </div>
+              <div className="img_maq">
+                <img src={maq} />
+              </div>
+            </div>
+
+            <div className="img_maq2">
+              <img src={maq_2} />
+            </div>
           </div>
         </div>
-        <div className="img_maq2">
-          <img src={maq_2} />
-        </div>
-        <div className="detalle">
-          <h4>Características técnicas:</h4>
-          <ul>
-            <li>Celdas de ozono modulares</li>
-            <li>Redundancia incorporada</li>
-            <li>Diseño ultra compacto</li>
-            <li>
-              QuadBlock® Cells: Módulos patentados Quadblock® diseñados para un
-              alto nivel de redundancia, que elimina completamente los tiempos
-              muertos.
-            </li>
-            <li>Dieléctricos libres de mantención.</li>
-            <li>
-              Equipo expandible en la medida que se integran más unidades de
-              Quadblock®
-            </li>
-            <li>Fuente de poder silenciosa de alta frecuencia.</li>
-            <li>Construcción ultra-resistente.</li>
-            <li>Fabricación en USA. </li>
-          </ul>
+        <div className="der">
+          <div className="detalle">
+            <h4>Características técnicas:</h4>
+            <ul>
+              <li>Celdas de ozono modulares</li>
+              <li>Redundancia incorporada</li>
+              <li>Diseño ultra compacto</li>
+              <li>
+                QuadBlock® Cells: Módulos patentados Quadblock® diseñados para
+                un alto nivel de redundancia, que elimina completamente los
+                tiempos muertos.
+              </li>
+              <li>Dieléctricos libres de mantención.</li>
+              <li>
+                Equipo expandible en la medida que se integran más unidades de
+                Quadblock®
+              </li>
+              <li>Fuente de poder silenciosa de alta frecuencia.</li>
+              <li>Construcción ultra-resistente.</li>
+              <li>Fabricación en USA. </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div className="tabla">
@@ -337,66 +344,116 @@ export function Pinnacle() {
 
 const PinnacleWrapper = styled.div`
   width: 100%;
-  .logo {
-    display: flex;
-    img {
-      width: 20%;
-    }
-  }
   .contenido {
+    margin-bottom: 35px;
     display: flex;
-    .grafico {
-      .subtitulo {
-        h6 {
-          text-align: justify;
-          font-weight: normal;
-          margin-right: 15px;
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+    .izq {
+      @media (max-width: 768px) {
+        width: 100%;
+      }
+      .logo {
+        display: flex;
+        @media (max-width: 768px) {
+          display: block;
+        }
+        img {
+          margin-top: 3px;
         }
       }
-      img {
-        width: 100%;
-        min-width: 100px;
-        max-width: 200px;
-        height: auto;
+      .grafico {
+        display: flex;
+        @media (max-width: 768px) {
+          display: flex;
+          flex-direction: column;
+        }
+
+        .img_izq {
+          margin-top: 25px;
+          margin-right: 50px;
+          @media (max-width: 768px) {
+            width: 100%;
+            padding: 0;
+            margin: 0;
+          }
+          .subtitulo {
+            h6 {
+              @media (max-width: 768px) {
+                margin-top: 15px;
+                margin-right: 0px;
+                text-align: center;
+              }
+              text-align: justify;
+              font-weight: normal;
+              margin-right: 15px;
+            }
+          }
+          img {
+            width: 100%;
+            min-width: 100px;
+            max-width: 200px;
+            height: auto;
+          }
+          @media (max-width: 768px) {
+            img {
+              max-width: 100px;
+            }
+          }
+        }
+      }
+
+      .img_maq2 {
+        img {
+          width: 100%;
+          min-width: 50px;
+          max-width: 200px;
+          height: auto;
+        }
+        @media (max-width: 768px) {
+          img {
+            max-width: 80px;
+          }
+        }
       }
     }
-    .img_maq2 {
-      img {
-        width: 100%;
-        min-width: 50px;
-        max-width: 100px;
-        height: auto;
-      }
-    }
-    .detalle {
-      padding-left: 50px;
-      h4 {
-        font-weight: bolder;
-        text-align: start;
-      }
-      ul {
-        padding: 0; /* Eliminar padding del ul */
-        margin: 0; /* Eliminar margin del ul */
-        list-style: none; /* Eliminar puntos por defecto */
-      }
-      li {
-        text-align: justify;
-        padding-bottom: 5px; /* Ajustar el espaciado entre elementos */
-        position: relative; /* Necesario para el pseudo-elemento */
-        padding-left: 9px; /* Espaciado para el punto */
-      }
-      li::before {
-        content: "•"; /* Añade un punto manualmente */
-        position: absolute;
-        left: 0; /* Posición del punto */
-        color: #263973; /* Color del punto */
-      }
+    .der {
       @media (max-width: 768px) {
+      }
+      .detalle {
+        padding-left: 50px;
+        @media (max-width: 768px) {
+          padding-left: 0;
+        }
         h4 {
-          font-size: 16px;
+          font-weight: bolder;
+          text-align: start;
+        }
+        ul {
+          padding: 0; /* Eliminar padding del ul */
+          margin: 0; /* Eliminar margin del ul */
+          list-style: none; /* Eliminar puntos por defecto */
         }
         li {
-          font-size: 13px;
+          text-align: justify;
+          padding-bottom: 5px; /* Ajustar el espaciado entre elementos */
+          position: relative; /* Necesario para el pseudo-elemento */
+          padding-left: 15px; /* Espaciado para el punto */
+        }
+        li::before {
+          content: "•"; /* Añade un punto manualmente */
+          position: absolute;
+          left: 0; /* Posición del punto */
+          color: #263973; /* Color del punto */
+        }
+        @media (max-width: 768px) {
+          h4 {
+            font-size: 16px;
+          }
+          li {
+            font-size: 13px;
+          }
         }
       }
     }
@@ -423,10 +480,10 @@ const PinnacleWrapper = styled.div`
       flex-direction: column; /* Cambia la disposición de los elementos a columnas en pantallas pequeñas */
       align-items: center;
 
-      .grafico{
+      .grafico {
         width: 100%;
-      .subtitulo{
-      }
+        .subtitulo {
+        }
       }
       .grafico,
       .img_maq2,
