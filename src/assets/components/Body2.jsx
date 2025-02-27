@@ -4,6 +4,7 @@ import { PCI } from "./brands/PCI";
 import { Triogen } from "./brands/Triogen";
 import { Pinnacle } from "./brands/Pinnacle";
 import { Container, Row, Col } from "react-bootstrap";
+import { FaivreBombas } from "./brands/FaivreBombas";
 
 export function Body2() {
   const [selected, setSelected] = useState("PCI");
@@ -16,6 +17,8 @@ export function Body2() {
         return <Triogen />;
       case "PINNACLE":
         return <Pinnacle />;
+      case "FAIVRE: BOMBAS":
+        return <FaivreBombas />;
       default:
         return <PCI />;
     }
@@ -46,6 +49,12 @@ export function Body2() {
                 className={selected === "PINNACLE" ? "active" : ""}
               >
                 PINNACLE
+              </Button>
+              <Button
+                onClick={() => setSelected("FAIVRE: BOMBAS")}
+                className={selected === "FAIVRE: BOMBAS" ? "active" : ""}
+              >
+                FAIVRE: BOMBAS
               </Button>
             </Selector>
           </Col>
